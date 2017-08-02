@@ -1,0 +1,21 @@
+{
+  "presets": [ //presets 字段是用来设定转码规则，，具体看官方的   https://babeljs.io/docs/plugins/
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]  //这个是浏览器使用的限制吗?
+      }
+    }],
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime"],
+  "env": { //evn选项来定义设置，以适应特定的环境
+    //env键将被process.env.BABEL_ENV调用，当调用时无论process.env.NODE_ENV是否可用都会把默认设置为development。
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["istanbul"]
+    }
+  }
+}
+
+//这一页的书写时固定的吗?看https://www.npmjs.com/package/babel-plugin-react-transform不是这么写的
